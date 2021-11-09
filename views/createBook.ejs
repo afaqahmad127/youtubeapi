@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Book</title>
+    <!--    <link rel='stylesheet' href='/stylesheets/style.css' />-->
+</head>
+<body>
+<form method="post" action="createbook">
+    <label for="name">Choose a Name of Book:</label>
+    <input type="text" required="required" placeholder="Book Name..." name="bookname">
+    <br><br>
+    <label for="name">select Pages of Book:</label>
+    <input type="text" required="required" placeholder="No of Page..." name="page">
+    <br><br>
+    <label for="ph">Choose an Author Name:</label>
+    <select name="name">
+        <% for(var i=0; i<users.length; i++){ %>
+            <option>
+                <%= users[i].name%>
+            </option>
+        <% } %>
+    </select>
+    <br><br>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
