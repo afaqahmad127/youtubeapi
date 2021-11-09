@@ -87,5 +87,22 @@ const videoDb = class Video {
             console.log('Error while Getting Video Urls');
         }
     }
+    async getSearchVidoes({ search }) {
+        try {
+            const videoUrls = this.videos.find({
+                $or: [
+                    {videoTitle: RegExp(search, "i")},
+                    {channelName: RegExp(search, "i")}
+                ],
+            });
+            // console.log(videoUrls);
+            return videoUrls;
+
+
+        }
+        catch (err) {
+            console.log('Error while Getting Video Urls');
+        }
+    }
 }
 module.exports = videoDb;
