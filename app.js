@@ -21,7 +21,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Data Base Connection
-mongoose.connect('mongodb://localhost:27017/MyDatabase').then(() => {
+mongoose.connect('mongodb+srv://afaq:malik1122@cluster0.yug8h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority').then(() => {
   console.log('CONNECTED TO MONGODB')
 }).catch(e => {
   console.log('Error', e.message)
