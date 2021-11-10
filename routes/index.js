@@ -118,6 +118,11 @@ router.get('/search', async function(req, res, next) {
   console.log(videosUrl);
   res.send(videosUrl);
 });
+router.get('/getsortedvideos', async function(req, res, next) {
+  const videosUrl = await db.getSortedVidoes();
+  console.log(videosUrl);
+  res.send(videosUrl);
+});
 
 
 module.exports = router;

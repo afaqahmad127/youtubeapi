@@ -87,6 +87,18 @@ const videoDb = class Video {
             console.log('Error while Getting Video Urls');
         }
     }
+    async getSortedVidoes() {
+        try {
+            const videoUrls = this.videos.find().sort({videoViewCount: 1});
+            // console.log(videoUrls);
+            return videoUrls;
+
+
+        }
+        catch (err) {
+            console.log('Error while Getting Video Urls');
+        }
+    }
     async getSearchVidoes({ search }) {
         try {
             const videoUrls = this.videos.find({
