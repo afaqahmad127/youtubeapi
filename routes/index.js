@@ -70,16 +70,16 @@ router.get('/add', async function(req, res, next) {
       });
      const channelThumbnail = channelDetail.data['items'][0].snippet['thumbnails'].high['url'];
       // res.send(channelDetail);
-      console.log('-----------------Start-',i,'------------------');
-      console.log('Video LINK>>>>>>>',videoLink);
-      console.log('Video Views>>>>>>', videoViewCount);
-      console.log('Video TITLE>>>>>>>',videoTitle);
-      console.log('Video Thumbnail>>>>>',videoThumbnail);
-      console.log('Channel Name>>>>',channelName);
-      console.log('Channel Thumbnail>>>', channelThumbnail);
-      console.log('Channel Subscribers>>>',subscribers);
-      console.log('Channel ID>>>>>>', channelId);
-      console.log('------------------',i,'-----------------END-');
+      // console.log('-----------------Start-',i,'------------------');
+      // console.log('Video LINK>>>>>>>',videoLink);
+      // console.log('Video Views>>>>>>', videoViewCount);
+      // console.log('Video TITLE>>>>>>>',videoTitle);
+      // console.log('Video Thumbnail>>>>>',videoThumbnail);
+      // console.log('Channel Name>>>>',channelName);
+      // console.log('Channel Thumbnail>>>', channelThumbnail);
+      // console.log('Channel Subscribers>>>',subscribers);
+      // console.log('Channel ID>>>>>>', channelId);
+      // console.log('------------------',i,'-----------------END-');
       // let videoUrl = baseUrl+snippets.resourceId['videoId'];
       const video = new db.videos({
         category:category,
@@ -109,6 +109,12 @@ router.get('/getsubcategory', async function(req, res, next) {
 router.get('/getvideos', async function(req, res, next) {
   const category=req.query['category'];
   const videosUrl = await db.getVidoes({category: category});
+  console.log(videosUrl);
+  res.send(videosUrl);
+});
+router.get('/getallvideos', async function(req, res, next) {
+
+  const videosUrl = await db.getAllVidoes();
   console.log(videosUrl);
   res.send(videosUrl);
 });

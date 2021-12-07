@@ -93,6 +93,21 @@ const videoDb = class Video {
             console.log('Error while Getting Video Urls');
         }
     }
+    async getAllVidoes(){
+        try {
+            // const videoUrls = this.videos.find({category:category});
+            const videoUrls = this.videos.aggregate(
+                [
+                    { $sample: { size: 40 } }
+                ]
+            );
+            // console.log(videoUrls);
+            return videoUrls;
+        }
+        catch (err) {
+            console.log('Error while Getting All Video Urls');
+        }
+    }
     async getSortedVidoes() {
         try {
             const videoUrls = this.videos.find().sort({videoViewCount: 1});
