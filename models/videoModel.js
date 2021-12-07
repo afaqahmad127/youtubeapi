@@ -77,7 +77,13 @@ const videoDb = class Video {
     }
     async getVidoes({ category }) {
         try {
-            const videoUrls = this.videos.find({category:category});
+            // const videoUrls = this.videos.find({category:category});
+            const videoUrls = this.videos.aggregate(
+                [
+                    { $match: {category:category} },
+                    { $sample: { size: 40 } }
+                ]
+            );
             // console.log(videoUrls);
             return videoUrls;
 
